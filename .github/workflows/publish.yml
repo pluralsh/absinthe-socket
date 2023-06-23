@@ -49,9 +49,6 @@ jobs:
 # npx nx affected --target lint --parallel 3
 # npx nx affected --target test --parallel 3 --ci --code-coverage
 
-    # - name: Install Semantic Release Plus
-    #   run: npm install -g semantic-release-plus
-
     - name: Release affected
       uses: mansagroup/nrwl-nx-action@v3.2.2
       with:
