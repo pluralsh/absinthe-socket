@@ -6,7 +6,6 @@
   "main": "src/index.js",
   "react-native": "src/index",
   "scripts": {
-    "version": "nps version",
     "prepack": "nps prepack"
   },
   "repository": {
