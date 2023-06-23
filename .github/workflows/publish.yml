@@ -30,9 +30,9 @@ jobs:
       with:
         fetch-depth: 0
         token: ${{ secrets.PLURAL_BOT_PAT }}
-    - name: Read Node.js version from package.json
-      run: echo nodeVersion=$(node -p "require('./package.json').engines.node") >> $GITHUB_OUTPUT
-      id: engines
+    # - name: Read Node.js version from package.json
+    #   run: echo nodeVersion=$(node -p "require('./package.json').engines.node") >> $GITHUB_OUTPUT
+    #   id: engines
     - name: 'Setup Node'
       uses: actions/setup-node@v3
       with:

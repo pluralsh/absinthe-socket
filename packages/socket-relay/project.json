@@ -4,7 +4,7 @@
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "npx semantic-release-plus --dry-run",
+        "command": "npx semantic-release-plus",
         "cwd": "packages/socket-relay/",
         "parallel": false
       }
