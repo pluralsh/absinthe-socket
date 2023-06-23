@@ -5,6 +5,8 @@ on:
     paths:
     - '*.js'
     - '*.cjs'
+    - '**/*.js'
+    - '**/*.cjs'
     - '**/package.json'
     - '**/package-lock.json'
     - 'package.json'
