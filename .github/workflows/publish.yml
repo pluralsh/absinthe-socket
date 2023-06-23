@@ -1,0 +1,60 @@
+name: 'Bump & Publish'
+
+on:
+  push:
+    paths:
+    - '*.js'
+    - '*.cjs'
+    - '**/package.json'
+    - '**/package-lock.json'
+    - 'package.json'
+    - 'package-lock.json'
+    - 'nx.json'
+    - '.github/workflows/publish.yml'
+    - '.releaserc'
+    - '**/tsconfig.json'
+    - 'tsconfig.base.json'
+    branches:
+    - 'main'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: 'Bump & Publish'
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.PLURAL_BOT_PAT }}
+    - name: Read Node.js version from package.json
+      run: echo nodeVersion=$(node -p "require('./package.json').engines.node") >> $GITHUB_OUTPUT
+      id: engines
+    - name: 'Setup Node'
+      uses: actions/setup-node@v3
+      with:
+        # node-version: ${{ steps.engines.outputs.nodeVersion }}
+        node-version: 18.16.1
+        registry-url: 'https://registry.npmjs.org'
+    - name: 'Install Dependencies'
+      run: yarn install --immutable
+    - name: Build affected
+      uses: mansagroup/nrwl-nx-action@v3.2.2
+      with:
+        targets: prepack
+# npx nx format:check
+# npx nx affected --target lint --parallel 3
+# npx nx affected --target test --parallel 3 --ci --code-coverage
+
+    # - name: Install Semantic Release Plus
+    #   run: npm install -g semantic-release-plus
+
+    - name: Release affected
+      uses: mansagroup/nrwl-nx-action@v3.2.2
+      with:
+        targets: release
+        parallel: 1
+      env:
+        GITHUB_TOKEN: ${{ secrets.PLURAL_BOT_PAT }}
+        NODE_AUTH_TOKEN: ${{ secrets.PLURAL_BOT_NPM_TOKEN }}
