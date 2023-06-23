@@ -40,5 +40,8 @@
   },
   "peerDependencies": {
     "phoenix": "^1.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
