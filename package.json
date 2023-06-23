@@ -46,7 +46,12 @@
     "rollup": "0.67.4",
     "rollup-plugin-babel": "4.1.0",
     "rollup-plugin-commonjs": "9.2.0",
-    "rollup-plugin-node-resolve": "4.0.0"
+    "rollup-plugin-node-resolve": "4.0.0",
+    "nx": "16.3.2",
+    "nx-cloud": "16.0.5",
+    "@nrwl/workspace": "16.3.2",
+    "conventional-changelog-conventionalcommits": "6.1.0",
+    "semantic-release-plus": "20.0.0"
   },
   "dependencies": {
     "phoenix": "1.4.1"
