@@ -1,6 +1,6 @@
 {
   "name": "@pluralsh/socket-apollo-link",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Absinthe Socket Apollo Link",
   "module": "dist/index.js",
   "main": "compat/cjs/index.js",
@@ -31,7 +31,7 @@
     "utils"
   ],
   "dependencies": {
-    "@pluralsh/socket": "0.2.1",
+    "@pluralsh/socket": ">=1.0.0",
     "@apollo/client": "3.5.10",
     "@babel/runtime": "7.17.9",
     "core-js": "2.6.0",
