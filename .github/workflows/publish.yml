@@ -40,7 +40,7 @@ jobs:
         node-version: 18.16.1
         registry-url: 'https://registry.npmjs.org'
     - name: 'Install Dependencies'
-      run: yarn install --immutable
+      run: npm ci
     - name: Build affected
       uses: mansagroup/nrwl-nx-action@v3.2.2
       with:
